@@ -5,8 +5,9 @@ from scipy.spatial.transform import Rotation as R
 import numpy as np
 from config  import config
 from model import siMLPe as Model
-from datasets.h36m_eval import H36MEval
-from utils.misc import rotmat2xyz_torch, rotmat2euler_torch
+sys.path.append(os.getcwd())
+from lib.datasets.h36m_eval import H36MEval
+from lib.utils.misc import rotmat2xyz_torch, rotmat2euler_torch
 
 import torch
 from torch.utils.data import DataLoader
@@ -52,6 +53,7 @@ def regress_pred(model, pbar, num_samples, joint_used_xyz, m_p3d_h36):
                     motion_input_ = torch.matmul(dct_m[:, :, :config.motion.h36m_input_length], motion_input_.cuda())
                 else:
                     motion_input_ = motion_input.clone()
+                #print(motion_input_.shape)
                 output = model(motion_input_)
                 output = torch.matmul(idct_m[:, :config.motion.h36m_input_length, :], output)[:, :step, :]
                 if config.deriv_output:
@@ -62,7 +64,7 @@ def regress_pred(model, pbar, num_samples, joint_used_xyz, m_p3d_h36):
             outputs.append(output)
             motion_input = torch.cat([motion_input[:, step:], output], axis=1)
         motion_pred = torch.cat(outputs, axis=1)[:,:25]
-
+        #print(motion_pred.shape)
         motion_target = motion_target.detach()
         b,n,c,_ = motion_target.shape
 

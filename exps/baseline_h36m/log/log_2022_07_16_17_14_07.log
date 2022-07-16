@@ -1,0 +1,128 @@
+[2022-07-16 17:16:59,665] INFO: {
+    "abs_dir": "/home/jianwei/yanjiu/siMLPe/siMLPe_my/exps/baseline_h36m",
+    "batch_size": 256,
+    "cos_lr_max": 1e-05,
+    "cos_lr_min": 5e-08,
+    "cos_lr_total_iters": 100000,
+    "data_aug": true,
+    "deriv_input": true,
+    "deriv_output": true,
+    "h36m_anno_dir": "/home/jianwei/yanjiu/siMLPe/siMLPe_my/data/h36m/",
+    "link_log_file": "/home/jianwei/yanjiu/siMLPe/siMLPe_my/exps/baseline_h36m/log/log_last.log",
+    "link_val_log_file": "/home/jianwei/yanjiu/siMLPe/siMLPe_my/exps/baseline_h36m/log/val_last.log",
+    "log_dir": "/home/jianwei/yanjiu/siMLPe/siMLPe_my/exps/baseline_h36m/log",
+    "log_file": "/home/jianwei/yanjiu/siMLPe/siMLPe_my/exps/baseline_h36m/log/log_2022_07_16_17_14_07.log",
+    "model_pth": null,
+    "motion": {
+        "dim": 66,
+        "h36m_input_length": 10,
+        "h36m_input_length_dct": 10,
+        "h36m_target_length": 10,
+        "h36m_target_length_eval": 25,
+        "h36m_target_length_train": 10
+    },
+    "motion_fc_in": {
+        "activation": "relu",
+        "in_features": 66,
+        "init_w_trunc_normal": false,
+        "out_features": 66,
+        "temporal_fc": false,
+        "with_norm": false
+    },
+    "motion_fc_out": {
+        "activation": "relu",
+        "in_features": 66,
+        "init_w_trunc_normal": true,
+        "out_features": 66,
+        "temporal_fc": false,
+        "with_norm": false
+    },
+    "motion_mlp": {
+        "hidden_dim": 66,
+        "norm_axis": "spatial",
+        "num_layers": 48,
+        "seq_len": 10,
+        "spatial_fc_only": false,
+        "with_normalization": true
+    },
+    "num_workers": 8,
+    "post_dct": false,
+    "pre_dct": false,
+    "print_every": 100,
+    "repo_name": "siMLPe_my",
+    "root_dir": "/home/jianwei/yanjiu/siMLPe/siMLPe_my",
+    "save_every": 5000,
+    "seed": 304,
+    "shift_step": 1,
+    "snapshot_dir": "/home/jianwei/yanjiu/siMLPe/siMLPe_my/exps/baseline_h36m/log/snapshot",
+    "this_dir": "baseline_h36m",
+    "use_relative_loss": true,
+    "val_log_file": "/home/jianwei/yanjiu/siMLPe/siMLPe_my/exps/baseline_h36m/log/val_2022_07_16_17_14_07.log",
+    "weight_decay": 0.0001
+}
+[2022-07-16 17:17:25,823] INFO: Iter 100 Summary: 
+[2022-07-16 17:17:25,827] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.08613236263394355
+[2022-07-16 17:17:50,734] INFO: Iter 200 Summary: 
+[2022-07-16 17:17:50,742] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.07508872278034687
+[2022-07-16 17:18:15,786] INFO: Iter 300 Summary: 
+[2022-07-16 17:18:15,789] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.07509162284433842
+[2022-07-16 17:18:40,655] INFO: Iter 400 Summary: 
+[2022-07-16 17:18:40,661] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.07482885286211967
+[2022-07-16 17:19:05,681] INFO: Iter 500 Summary: 
+[2022-07-16 17:19:05,699] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.07524581372737885
+[2022-07-16 17:19:30,950] INFO: Iter 600 Summary: 
+[2022-07-16 17:19:30,951] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.07541789539158344
+[2022-07-16 17:19:56,192] INFO: Iter 700 Summary: 
+[2022-07-16 17:19:56,193] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.07527600184082985
+[2022-07-16 17:20:22,059] INFO: Iter 800 Summary: 
+[2022-07-16 17:20:22,061] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.07404811911284924
+[2022-07-16 17:20:47,236] INFO: Iter 900 Summary: 
+[2022-07-16 17:20:47,241] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.06595692668110133
+[2022-07-16 17:21:10,163] INFO: Iter 1000 Summary: 
+[2022-07-16 17:21:10,164] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.060967629067599775
+[2022-07-16 17:21:35,118] INFO: Iter 1100 Summary: 
+[2022-07-16 17:21:35,119] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.058663430772721764
+[2022-07-16 17:22:00,208] INFO: Iter 1200 Summary: 
+[2022-07-16 17:22:00,209] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05768703609704971
+[2022-07-16 17:22:25,199] INFO: Iter 1300 Summary: 
+[2022-07-16 17:22:25,200] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.056604369543492794
+[2022-07-16 17:22:49,879] INFO: Iter 1400 Summary: 
+[2022-07-16 17:22:49,881] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05580500777810812
+[2022-07-16 17:23:15,624] INFO: Iter 1500 Summary: 
+[2022-07-16 17:23:15,626] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05492050539702177
+[2022-07-16 17:23:40,655] INFO: Iter 1600 Summary: 
+[2022-07-16 17:23:40,656] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.053964214511215684
+[2022-07-16 17:24:05,725] INFO: Iter 1700 Summary: 
+[2022-07-16 17:24:05,726] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05409658443182707
+[2022-07-16 17:24:30,809] INFO: Iter 1800 Summary: 
+[2022-07-16 17:24:30,810] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05356252785772085
+[2022-07-16 17:24:55,776] INFO: Iter 1900 Summary: 
+[2022-07-16 17:24:55,777] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.053710738010704515
+[2022-07-16 17:25:51,536] INFO: Iter 2000 Summary: 
+[2022-07-16 17:25:51,537] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.053279403261840344
+[2022-07-16 17:26:16,420] INFO: Iter 2100 Summary: 
+[2022-07-16 17:26:16,420] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.053017912469804286
+[2022-07-16 17:26:41,962] INFO: Iter 2200 Summary: 
+[2022-07-16 17:26:41,964] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05289290186017752
+[2022-07-16 17:27:06,541] INFO: Iter 2300 Summary: 
+[2022-07-16 17:27:06,550] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.0529998841881752
+[2022-07-16 17:27:31,602] INFO: Iter 2400 Summary: 
+[2022-07-16 17:27:31,603] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05238912682980299
+[2022-07-16 17:27:56,527] INFO: Iter 2500 Summary: 
+[2022-07-16 17:27:56,531] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.052170883528888226
+[2022-07-16 17:28:21,179] INFO: Iter 2600 Summary: 
+[2022-07-16 17:28:21,179] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05139263290911913
+[2022-07-16 17:28:46,255] INFO: Iter 2700 Summary: 
+[2022-07-16 17:28:46,256] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05130717266350984
+[2022-07-16 17:29:11,435] INFO: Iter 2800 Summary: 
+[2022-07-16 17:29:11,436] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05137701466679573
+[2022-07-16 17:29:37,106] INFO: Iter 2900 Summary: 
+[2022-07-16 17:29:37,107] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05081245061010122
+[2022-07-16 17:30:00,311] INFO: Iter 3000 Summary: 
+[2022-07-16 17:30:00,932] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05123129401355982
+[2022-07-16 17:30:58,189] INFO: Iter 3100 Summary: 
+[2022-07-16 17:30:58,190] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.050762766264379026
+[2022-07-16 17:31:23,200] INFO: Iter 3200 Summary: 
+[2022-07-16 17:31:23,202] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.050542991645634174
+[2022-07-16 17:31:48,141] INFO: Iter 3300 Summary: 
+[2022-07-16 17:31:48,148] INFO: 	 lr: 0.00030000000000000073 	 Training loss: 0.05047601036727428

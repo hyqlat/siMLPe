@@ -4,13 +4,16 @@ import json
 import math
 import numpy as np
 import copy
+import tqdm
 
 from config import config
 from model import siMLPe as Model
-from datasets.h36m import H36MDataset
-from utils.logger import get_logger, print_and_log_info
-from utils.pyt_utils import link_file, ensure_dir
-from datasets.h36m_eval import H36MEval
+
+sys.path.append(os.getcwd())
+from lib.datasets.h36m import H36MDataset
+from lib.utils.logger import get_logger, print_and_log_info
+from lib.utils.pyt_utils import link_file, ensure_dir
+from lib.datasets.h36m_eval import H36MEval
 
 from test import test
 
@@ -83,7 +86,7 @@ def train_step(h36m_motion_input, h36m_motion_target, model, continousrot_decode
         h36m_motion_input_ = torch.matmul(dct_m[:, :, :config.motion.h36m_input_length], h36m_motion_input_.cuda())
     else:
         h36m_motion_input_ = h36m_motion_input.clone()
-
+    #print(h36m_motion_input_.shape)
     motion_pred = model(h36m_motion_input_.cuda())
     motion_pred = torch.matmul(idct_m[:, :config.motion.h36m_input_length, :], motion_pred)
 
@@ -92,7 +95,7 @@ def train_step(h36m_motion_input, h36m_motion_target, model, continousrot_decode
         motion_pred = motion_pred[:, :config.motion.h36m_target_length] + offset
     else:
         motion_pred = motion_pred[:, :config.motion.h36m_target_length]
-
+    #print(motion_pred.shape)
     b,n,c = h36m_motion_target.shape
     motion_pred = motion_pred.reshape(b,n,22,3).reshape(-1,3)
     h36m_motion_target = h36m_motion_target.cuda().reshape(b,n,22,3).reshape(-1,3)
@@ -164,7 +167,7 @@ if config.model_pth is not None :
 nb_iter = 0
 avg_loss = 0.
 avg_lr = 0.
-
+continousrot_decoder = None
 while (nb_iter + 1) < config.cos_lr_total_iters:
 
     for (h36m_motion_input, h36m_motion_target) in dataloader:

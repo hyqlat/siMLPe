@@ -20,9 +20,10 @@ C.seed = 304
 """please config ROOT_dir and user when u first using"""
 C.abs_dir = osp.dirname(osp.realpath(__file__))
 C.this_dir = C.abs_dir.split(osp.sep)[-1]
-C.repo_name = 'siMLPe'
+C.repo_name = 'siMLPe_my'
 C.root_dir = C.abs_dir[:C.abs_dir.index(C.repo_name) + len(C.repo_name)]
-
+#C.root_dir = C.abs_dir
+print(C.root_dir, "\n\n")
 
 C.log_dir = osp.abspath(osp.join(C.abs_dir, 'log'))
 C.snapshot_dir = osp.abspath(osp.join(C.log_dir, "snapshot"))
@@ -47,8 +48,8 @@ add_path(osp.join(C.root_dir, 'lib'))
 C.h36m_anno_dir = osp.join(C.root_dir, 'data/h36m/')
 C.motion = edict()
 
-C.motion.h36m_input_length = 50
-C.motion.h36m_input_length_dct = 50
+C.motion.h36m_input_length = 10 #50
+C.motion.h36m_input_length_dct = 10 #50
 C.motion.h36m_target_length_train = 10
 C.motion.h36m_target_length_eval = 25
 C.motion.dim = 66
@@ -94,7 +95,7 @@ C.num_workers = 8
 
 C.cos_lr_max=1e-5
 C.cos_lr_min=5e-8
-C.cos_lr_total_iters=40000
+C.cos_lr_total_iters=100000#40000
 
 C.weight_decay = 1e-4
 C.model_pth = None
