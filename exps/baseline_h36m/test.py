@@ -41,7 +41,7 @@ def regress_pred(model, pbar, num_samples, joint_used_xyz, m_p3d_h36):
         motion_input = motion_input.reshape(b, n, 32, 3)
         motion_input = motion_input[:, :, joint_used_xyz].reshape(b, n, -1)
         outputs = []
-        step = config.motion.h36m_target_length_train
+        step = config.motion.h36m_target_length_train#一次预测的帧数
         if step == 25:
             num_step = 1
         else:
@@ -62,7 +62,7 @@ def regress_pred(model, pbar, num_samples, joint_used_xyz, m_p3d_h36):
             output = output.reshape(-1, 22*3)
             output = output.reshape(b,step,-1)
             outputs.append(output)
-            motion_input = torch.cat([motion_input[:, step:], output], axis=1)
+            motion_input = torch.cat([motion_input[:, step:], output], axis=1)#去掉前10帧，加入新预测的10帧
         motion_pred = torch.cat(outputs, axis=1)[:,:25]
         #print(motion_pred.shape)
         motion_target = motion_target.detach()

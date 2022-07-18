@@ -90,7 +90,7 @@ def train_step(h36m_motion_input, h36m_motion_target, model, continousrot_decode
     motion_pred = model(h36m_motion_input_.cuda())
     motion_pred = torch.matmul(idct_m[:, :config.motion.h36m_input_length, :], motion_pred)
 
-    if config.deriv_output:
+    if config.deriv_output:#预测相对位置（相对最后一帧条件帧）or绝对位置
         offset = h36m_motion_input[:, -1:].cuda()
         motion_pred = motion_pred[:, :config.motion.h36m_target_length] + offset
     else:
@@ -98,7 +98,7 @@ def train_step(h36m_motion_input, h36m_motion_target, model, continousrot_decode
     #print(motion_pred.shape)
     b,n,c = h36m_motion_target.shape
     motion_pred = motion_pred.reshape(b,n,22,3).reshape(-1,3)
-    h36m_motion_target = h36m_motion_target.cuda().reshape(b,n,22,3).reshape(-1,3)
+    h36m_motion_target = h36m_motion_target.cuda().reshape(b,n,22,3).reshape(-1,3)#gt
     loss = torch.mean(torch.norm(motion_pred - h36m_motion_target, 2, 1))
 
     if config.use_relative_loss:
